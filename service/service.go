@@ -3,6 +3,7 @@ package service
 import (
 	"gosftp/config"
 	"io"
+	"log"
 	"path"
 
 	"github.com/pkg/sftp"
@@ -21,6 +22,11 @@ func NewSftpService(config *config.SftpConfig) (*SftpService, error) {
 		},
 		HostKeyCallback: ssh.InsecureIgnoreHostKey(),
 	}
+	log.Printf("Username:", config.Username)
+	log.Printf("Username:", config.Password)
+	log.Printf("Username:", config.Host)
+	log.Printf("Username:", config.Port)
+	
 	conn, err := ssh.Dial("tcp", config.Host+":"+config.Port, sshConfig)
 	if err != nil {
 		return nil, err
