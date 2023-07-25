@@ -1,1 +1,1 @@
-web: ./gosftp
+web: gosftp
